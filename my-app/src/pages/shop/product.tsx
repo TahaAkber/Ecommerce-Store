@@ -1,4 +1,5 @@
 import React from "react";
+import "../shop/style.css";
 export interface productprops {
   id: number;
   productName: string;
