@@ -1,13 +1,13 @@
 import React from "react";
 import { productprops } from "../pages/shop/product";
-const Product1 = require("../assets/products/1.png") as string;
-const Product2 = require("../assets/products/2.png") as string;
-const Product3 = require("../assets/products/3.png") as string;
-const Product4 = require("../assets/products/4.png") as string;
-const Product5 = require("../assets/products/5.png") as string;
-const Product6 = require("../assets/products/6.webp") as string;
-const Product7 = require("../assets/products/7.webp") as string;
-const Product8 = require("../assets/products/8.webp") as string;
+import Product1 from "../assets/products/iphone-12-pakistan-mobileguru.png";
+import Product2 from "../assets/products/2.webp";
+import Product3 from "../assets/products/3.jpg";
+import Product4 from "../assets/products/4.jpeg";
+import Product5 from "../assets/products/5.jpeg";
+import Product7 from "../assets/products/7.jpeg";
+import Product6 from "../assets/products/6.jpeg";
+import Product8 from "../assets/products/8.webp";
 
 export const Products: productprops[] = [
   {
@@ -42,7 +42,7 @@ export const Products: productprops[] = [
   },
   {
     id: 6,
-    productName: "fullslieves",
+    productName: "fullsleeves",
     price: 300,
     productimage: Product6,
   },
