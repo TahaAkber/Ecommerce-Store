@@ -5,7 +5,9 @@ import Product from "./product";
 function Shop() {
   return (
     <div>
-      <h2>Taha's Shop</h2>
+      <h1>
+        <b>SHOOPING CENTER</b>
+      </h1>
       <div>
         {Products.map((i) => (
           <Product data={i} />
