@@ -2,21 +2,39 @@ import React, { useState } from "react";
 import { createContext } from "react";
 import { Products } from "../../configs/Products";
 
-export const ShopContext = createContext(null);
-const defaultcart = () => {
-  let cart = {};
-  for (let i = 1; i < Products.length + 1, i++; ) {
+export interface ShopContextType {
+  cart: { [itemId: number]: number };
+  addtocart: (itemId: number) => void;
+  removefromcart: (itemId: number) => void;
+}
+
+export const ShopContext = createContext<ShopContextType | null>(null);
+
+const defaultCart = () => {
+  let cart: { [itemId: number]: number } = {};
+  // Replace Products.length with the actual length based on your data
+  for (let i = 1; i <= Products.length; i++) {
     cart[i] = 0;
   }
   return cart;
 };
-export const Shop_contextprovider = (props: any) => {
-  const [cart, setcart] = useState(defaultcart());
-  const addtocart = (itemId) => {
-    setcart((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+
+export const ShopContextProvider = (props: any) => {
+  const [cart, setCart] = useState(defaultCart);
+
+  const addtocart = (itemId: number) => {
+    setCart((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };
-  const removefromcart = (itemId) => {
-    setcart((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+
+  const removefromcart = (itemId: number) => {
+    setCart((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
-  return <ShopContext.Provider value={}>{props.children}</ShopContext.Provider>;
+
+  const contextValue: ShopContextType = { cart, addtocart, removefromcart };
+  console.log(cart);
+  return (
+    <ShopContext.Provider value={contextValue}>
+      {props.children}
+    </ShopContext.Provider>
+  );
 };
