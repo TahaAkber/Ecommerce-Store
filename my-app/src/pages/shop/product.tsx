@@ -15,12 +15,13 @@ const Product = (props: any) => {
     return null;
   }
 
-  const { addtocart }: ShopContextType = contextValue;
+  const { addtocart, cart }: ShopContextType = contextValue;
 
   if (!addtocart) {
     console.error("addtocart method is not available in ShopContext");
     return null; // or handle the lack of addtocart method in a different way
   }
+  const cartitemAmount = cart[id];
   return (
     <div className="product">
       <img src={productimage} />
@@ -36,7 +37,7 @@ const Product = (props: any) => {
           addtocart(id);
         }}
       >
-        Add to Cart
+        Add to Cart {cartitemAmount > 0 && <>({cartitemAmount})</>}
       </button>
     </div>
   );
