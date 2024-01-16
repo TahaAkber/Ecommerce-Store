@@ -1,20 +1,19 @@
 import React from "react";
 export interface productprops {
-  id: number;
+  id: any;
   productName: string;
   price: number;
   productimage: any;
 }
 const Product = (props: any) => {
-  const { id, productName, price, productimage } = props.data;
   return (
     <div className="product">
-      <img src={productimage} />
+      <img src={props.productimage} />
       <div className="description">
         <p>
-          <b>{productName}</b>
+          <b>{props.productName}</b>
         </p>
-        <p>${price}</p>
+        <p>${props.price}</p>
       </div>
       <button className="addToCartBttn">Add to Cart</button>
     </div>
