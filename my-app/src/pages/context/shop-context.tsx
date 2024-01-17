@@ -40,8 +40,6 @@ export const ShopContextProvider = (props: any) => {
     return cartamount; // Return the calculated cartamount
   };
 
-  const totalamount = getcartinfo();
-
   const addtocart = (itemId: number) => {
     setCart((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };

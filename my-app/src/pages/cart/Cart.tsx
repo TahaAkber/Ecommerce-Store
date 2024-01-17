@@ -1,7 +1,5 @@
 import React from "react";
-import Product from "../shop/product";
 import Products from "../../configs/Products";
-import { createContext } from "react";
 import { ShopContextType, ShopContext } from "../context/shop-context";
 import { useContext } from "react";
 import Cartitems from "./Cartitems";
@@ -21,17 +19,15 @@ function Cart() {
       </div>
       <div className="cartItems">
         {Products.map((product) => {
-          if (cart[product.id] !== 0) {
-            return <Cartitems data={product} />;
-          }
+          if (cart[product.id] !== 0) return <Cartitems data={product} />;
         })}
       </div>
       <div className="checkout">
-        <p>Subtotal: ${totalamount}</p>
+        {totalamount !== null && <h6>SubTotal: ${totalamount ?? 0}</h6>}
       </div>
       <div>
-        <button>Continue Shopping</button>
-        <button>Check-Out</button>
+        <button className="addToCartBttn">Continue Shopping</button>
+        <button className="addToCartBttn">Check-Out</button>
       </div>
     </div>
   );

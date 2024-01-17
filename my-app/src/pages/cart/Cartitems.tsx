@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ShopContext, ShopContextType } from "../context/shop-context";
 import { useContext } from "react";
 const Cartitems = (props: any) => {
@@ -12,7 +12,7 @@ const Cartitems = (props: any) => {
 
   return (
     <div className="cartItem">
-      <img src={productimage} />
+      <img src={productimage} alt="" />
       <div className="description">
         <p>
           <b>{productName}</b>
