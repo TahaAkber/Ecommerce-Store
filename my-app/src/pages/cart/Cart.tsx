@@ -12,8 +12,8 @@ function Cart() {
     console.error("ShopContext is null");
     return null;
   }
-  const { cart }: ShopContextType = contextValue;
-
+  const { cart, getcartinfo }: ShopContextType = contextValue;
+  const totalamount = getcartinfo();
   return (
     <div>
       <div className="cart">
@@ -27,7 +27,9 @@ function Cart() {
         })}
       </div>
       <div className="checkout">
-        <p>Subtotal: $</p>
+        <p>Subtotal: ${totalamount}</p>
+      </div>
+      <div>
         <button>Continue Shopping</button>
         <button>Check-Out</button>
       </div>
