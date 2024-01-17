@@ -3,8 +3,9 @@ import Products from "../../configs/Products";
 import { ShopContextType, ShopContext } from "../context/shop-context";
 import { useContext } from "react";
 import Cartitems from "./Cartitems";
-
+import { useNavigate } from "react-router-dom";
 function Cart() {
+  const navigate = useNavigate();
   const contextValue: ShopContextType | null = useContext(ShopContext);
   if (!contextValue) {
     console.error("ShopContext is null");
@@ -22,11 +23,25 @@ function Cart() {
           if (cart[product.id] !== 0) return <Cartitems data={product} />;
         })}
       </div>
-      <div className="checkout">
-        {totalamount !== null && <h6>SubTotal: ${totalamount ?? 0}</h6>}
-      </div>
+      {totalamount ? (
+        <div className="checkout">
+          <h6>SubTotal: ${totalamount}</h6>
+        </div>
+      ) : (
+        <p>
+          <b>Cart is Empty</b>
+        </p>
+      )}
+
       <div>
-        <button className="addToCartBttn">Continue Shopping</button>
+        <button
+          className="addToCartBttn"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Continue Shopping
+        </button>
         <button className="addToCartBttn">Check-Out</button>
       </div>
     </div>
