@@ -5,6 +5,7 @@ import "./App.css";
 import Shop from "./pages/shop/Shop";
 import Cart from "./pages/cart/Cart";
 import { ShopContextProvider } from "./pages/context/shop-context";
+
 function App() {
   return (
     <div className="App">
