@@ -6,13 +6,15 @@ import Shop from "./pages/shop/Shop";
 import Cart from "./pages/cart/Cart";
 import { ShopContextProvider } from "./pages/context/shop-context";
 import Login from "./components/Login";
-
+import { useAuth0 } from "@auth0/auth0-react";
 function App() {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div className="App">
       <ShopContextProvider>
         <Router>
-          <Navbar />
+          {isAuthenticated && <Navbar />}
           <Routes>
             <Route path="/" element={<Login />}></Route>
             <Route path="/shop" element={<Shop />} />
