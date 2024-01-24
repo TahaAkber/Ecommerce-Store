@@ -1,24 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "bootstrap/dist/css/bootstrap.css";
 import { Auth0Provider } from "@auth0/auth0-react";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-if (!domain) {
-  throw new Error("Auth0 domain is not defined");
-}
-if (!clientId) {
-  throw new Error("Auth0 id is not defined");
-}
+
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      domain={domain}
-      clientId={clientId}
+      domain="dev-6h2j7ztxv8l6hjti.us.auth0.com"
+      clientId="lSN7moa1xiUTXOMKu0K6cZpbjG7hV3UL"
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}
