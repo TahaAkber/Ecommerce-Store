@@ -37,7 +37,7 @@ function Cart() {
         <button
           className="addToCartBttn"
           onClick={() => {
-            navigate("/");
+            navigate("/shop");
           }}
         >
           Continue Shopping
