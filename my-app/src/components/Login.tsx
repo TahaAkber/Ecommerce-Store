@@ -12,7 +12,7 @@ const Login = () => {
     <div
       className="full-page"
       style={{
-        backgroundColor: "royalblue",
+        backgroundColor: "lightblue",
         height: "100vh",
         display: "flex",
         justifyContent: "center",
