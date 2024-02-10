@@ -16,6 +16,7 @@ const Login = () => {
         height: "100vh",
         display: "flex",
         justifyContent: "center",
+        borderRadius: 75,
         alignItems: "center",
       }}
     >
